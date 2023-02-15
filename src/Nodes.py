@@ -26,4 +26,13 @@ class BayesNode:
         self.relSuperior.append(x)
     
     def agregarCompound(self,x):
-        self.CompoundTable.append(x)  
+        self.CompoundTable.append(x)
+
+    def Describir(self):
+        retorno = ''
+        retorno += 'Nodo: ' + str(self.tag) + '\n  relaciones superiores:\n'
+        for p in self.relSuperior:
+            retorno += '    - ' + str(p) + '\n'
+        retorno += '  relaciones del nodo:\n'
+        for i in self.CompoundTable:
+            retorno += '    - ' + str(i[0]) + ' ' + str(i[1]) + '\n'
