@@ -9,17 +9,18 @@ class BayesNode:
         self.estados = estados
         self.tag = tag
 
-        # verificar valor de relacion superior
+        # relación superior = nodos que afectan la probablidad del nodo en discusión.
         if relSuperior is not None:
             self.relSuperior = relSuperior
         else:
             self.relSuperior = []
-
-        # verificar valor de relacion superior
+ 
+        # key = combinación de padres  
+        # value = probabilidad que toma el nodo dada la prob de los padres.
         if cmpTable is not None:
             self.CompoundTable = cmpTable
         else:
-            self.CompoundTable = []
+            self.CompoundTable = {}
 
     # agregar relaciones que afectaran al nodo
     def nuevaConexionSuperior(self, x):
@@ -34,5 +35,5 @@ class BayesNode:
         for p in self.relSuperior:
             retorno += '    - ' + str(p) + '\n'
         retorno += '  relaciones del nodo:\n'
-        for i in self.CompoundTable:
-            retorno += '    - ' + str(i[0]) + ' ' + str(i[1]) + '\n'
+        for relSUP, Probabilidad in self.CompoundTable.items():
+            print('    - ' ,relSUP, ":", Probabilidad)
