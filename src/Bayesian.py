@@ -20,7 +20,7 @@ class Bayes:
 
     # si los estados X estan en los values del compound table entonces la funcion all devuelve true.
     def verificarDescrita(self):
-        return all(estado in X.CompoundTable[relacionSuperior] for X in self.nodosBayes for relacionSuperior in X.CompoundTable for estado in X.states)
+        return all(estado in X.CompoundTable[relacionSuperior] for X in self.nodosBayes for relacionSuperior in X.CompoundTable for estado in X.estados)
 
     # probabilidad de un evento
     def consulta(self, pregunta):

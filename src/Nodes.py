@@ -26,14 +26,17 @@ class BayesNode:
     def nuevaConexionSuperior(self, x):
         self.relSuperior.append(x)
     
-    def agregarCompound(self,x):
-        self.CompoundTable.append(x)
+    def agregarCompound(self,x,y):
+        self.CompoundTable[x] = y
 
     def Describir(self):
         retorno = ''
         retorno += 'Nodo: ' + str(self.tag) + '\n  relaciones superiores:\n'
         for p in self.relSuperior:
-            retorno += '    - ' + str(p) + '\n'
-        retorno += '  relaciones del nodo:\n'
+            retorno += '    - ' + str(p.tag) + '\n'
+        retorno += '  tabla de probabilidades del nodo:\n'
         for relSUP, Probabilidad in self.CompoundTable.items():
-            print('    - ' ,relSUP, ":", Probabilidad)
+            retorno += '    - ' + str(relSUP) + ':' + str(Probabilidad) + '\n'
+
+        
+        return retorno
