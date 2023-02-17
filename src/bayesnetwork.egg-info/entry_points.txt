@@ -1,0 +1,3 @@
+[console_scripts]
+bayesnetwork = bayesnetwork.bayesnetwork:main
+
