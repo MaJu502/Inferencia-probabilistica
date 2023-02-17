@@ -1,4 +1,4 @@
-from bayesnetwork.bayesnetwork import *
+from forTest import *
 
 # creando noodos
 A = BayesNode(estados=[True,False], tag='A')
